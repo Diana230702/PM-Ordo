@@ -1,23 +1,24 @@
 import { baseAxios } from "@/utils/baseAxios";
-import { Article } from "@/utils/types";
+import { News } from "@/utils/types";
 import { useQuery } from "@tanstack/react-query";
 
-type FetchArticlesResponse = {
+type FetchNewsResponse = {
     count: number;
     next?: string | null;
     previous?: string | null;
-    results: Article[];
+    results: News[];
 };
 
 export type Params = {
     owner?: string;
     search?: string;
     page?: number;
+    is_seller_news?: string
 };
 
-export const fetchArticles = async (arg?: Params) => {
+export const fetchNews = async (arg?: Params) => {
 
-    const { data } = await baseAxios.get<FetchArticlesResponse>("/articles/", {
+    const { data } = await baseAxios.get<FetchNewsResponse>("/news/", {
         params: arg,
     });
     console.log(data);
@@ -25,10 +26,10 @@ export const fetchArticles = async (arg?: Params) => {
     return data;
 };
 
-export const useFetchArticles = (arg?: Params) => {
+export const useFetchNews = (arg?: Params) => {
     const query = useQuery({
-        queryFn: () => fetchArticles(arg),
-        queryKey: ["articles", arg],
+        queryFn: () => fetchNews(arg),
+        queryKey: ["news", arg],
         initialData: null,
     }); //usequery вызовет функцию, получит данные и вернет
 
