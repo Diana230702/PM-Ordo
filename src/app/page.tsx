@@ -1,6 +1,6 @@
 import Navbar from "@/Navbar/Navbar";
 import News from "@/services/news/News";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function Home() {
   return (
