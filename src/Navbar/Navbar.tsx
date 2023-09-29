@@ -1,10 +1,11 @@
 import React from "react";
 import "./Navbar.css";
-import logo from "../Images/logo.png";
+// import logos from "../Images/cart.png";
 
 const Navbar = () => {
   return (
     <div className="container">
+      {/* <img src={logos} alt="/" /> */}
       <ul>
         <li>Главная</li>
         <li>Продукция</li>
